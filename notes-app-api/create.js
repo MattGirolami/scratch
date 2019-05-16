@@ -27,8 +27,8 @@ export function main(event, context, callback) {
   };
 
   dynamoDb.put(params, (error, data) => {
-    // Set response headers to enable CORS (cross origin resource sharing https://www.codecademy.com/articles/what-is-cors )
-    const corsHeaders = {
+    // Set response headers to enable CORS (Cross-Origin Resource Sharing)
+    const headers = {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Credentials": true
     };
@@ -37,7 +37,7 @@ export function main(event, context, callback) {
     if (error) {
       const response = {
         statusCode: 500,
-        headers: corsHeaders,
+        headers: headers,
         body: JSON.stringify({ status: false })
       };
       callback(null, response);
@@ -47,7 +47,7 @@ export function main(event, context, callback) {
     // Return status code 200 and the newly created item
     const response = {
       statusCode: 200,
-      headers: corsHeaders,
+      headers: headers,
       body: JSON.stringify(params.Item)
     };
     callback(null, response);
