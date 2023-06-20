@@ -11,8 +11,10 @@ on:
 
 jobs:
   build:
-      working-directory: ./app
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./notes-app-api
 
     strategy:
       matrix:
