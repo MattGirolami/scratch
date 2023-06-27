@@ -14,10 +14,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./notes-app-api
-
     strategy:
       matrix:
         node-version: [18.x]
@@ -31,8 +27,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-      working-directory: ./notes-app-api
     - run: npm run build --if-present
-      working-directory: ./notes-app-api
     - run: npm test
-      working-directory: ./notes-app-api
