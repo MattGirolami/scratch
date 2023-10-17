@@ -1,6 +1,6 @@
 import * as handler from '../handler';
 
-test('hello', async () => {
+test(1', async () => {
   const event = 'event';
   const context = 'context';
   const callback = (error, response) => {
